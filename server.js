@@ -1,12 +1,8 @@
-const express = require("express");
-const { sequelize, testConnection } = require("./dataBase/connection");
-const cors = require("cors");
-
-const app = express();
-
-app.use(cors());
+require("dotenv").config();
+const app = require("./src/app");
 
 const PORT = process.env.PORT || 3000;
 
-//teste a conexão
-testConnection();
+app.listen(PORT, () => {
+  console.log(`server esta rodando na porta ${PORT}`);
+});
